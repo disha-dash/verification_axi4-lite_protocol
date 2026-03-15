@@ -78,17 +78,21 @@ https://www.edaplayground.com/x/H8Yf
 ```
 axi_verification
 │
-├── axi_if.sv
-├── axi_transaction.sv
-├── axi_sequencer.sv
-├── axi_driver.sv
-├── axi_monitor.sv
-├── axi_scoreboard.sv
-├── axi_env.sv
+├── tb_top.sv
+│ ├── axi_if.sv
+│ ├── axi_slave.sv
+│ ├── axi_assertions.sv
+│ └── axi_test.sv
+│
 ├── axi_test.sv
-├── axi_assertions.sv
-├── axi_slave.sv
-└── tb_top.sv
+│ ├── axi_env.sv
+│ │ ├── axi_driver.sv
+│ │ ├── axi_monitor.sv
+│ │ ├── axi_scoreboard.sv
+│ │ └── mailbox (monitor → scoreboard communication)
+│ │
+│ └── axi_sequencer.sv
+│ └── axi_transaction.sv
 ```
 
 
