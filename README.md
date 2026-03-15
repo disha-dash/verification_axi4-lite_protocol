@@ -38,20 +38,23 @@ AXI uses a **two-signal handshake mechanism** that ensures safe data transfer wi
 
 A transaction occurs when **both VALID and READY signals are high (1).**
 
-**Master signals**
-- `AWVALID`
-- `WVALID`
-- `BREADY`
-- `ARVALID`
-- `RREADY`
+## AXI4-Lite Handshake Signals
 
-**Slave signals**
-- `AWREADY`
-- `WREADY`
-- `BVALID`
-- `ARREADY`
-- `RVALID`
+### Master Signals (Master → Slave)
 
+- `AWVALID` – Indicates the write address on the AW channel is valid  
+- `WVALID` – Indicates the write data on the W channel is valid  
+- `BREADY` – Master is ready to accept the write response  
+- `ARVALID` – Indicates the read address on the AR channel is valid  
+- `RREADY` – Master is ready to accept the read data  
+
+### Slave Signals (Slave → Master)
+
+- `AWREADY` – Slave is ready to accept the write address  
+- `WREADY` – Slave is ready to accept the write data  
+- `BVALID` – Write response from the slave is valid  
+- `ARREADY` – Slave is ready to accept the read address  
+- `RVALID` – Read data from the slave is valid
 ---
 
 # Technologies Used
