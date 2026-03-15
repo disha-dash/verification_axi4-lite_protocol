@@ -15,15 +15,25 @@ The testbench master drives read/write transactions and checks protocol complian
 # 5 Channels of AXI4-Lite
 
  ##Write Address Channel (AW)
+ 
   *Carries the address of the write operation
+  
  ##Write Data Channel (W)
+ 
   *Carries the data to be written
+  
  ##Write Response Channel (B)
+ 
   *Slave sends the status of the write transaction
+  
  ##Read Address Channel (AR)
+ 
   *Carries the address of the read operation
+  
  ##Read Data Channel (R)
+ 
   *Carries the data to be read
+  
 
 ---
 
@@ -31,7 +41,9 @@ The testbench master drives read/write transactions and checks protocol complian
 
 AXI uses a 2-signal handshake which commuhnicates safe communication without data loss.
 Transaction occurs when both VALID and READY signals are 1.
+
  **Master**: AWVALID, WVALID, BVALID, ARVALID, RVALID
+ 
  **Slave**: AWREADY, WREADY, BREADY, ARREADY, RREADY
 
 ---
