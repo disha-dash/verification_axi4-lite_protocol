@@ -7,7 +7,7 @@ The testbench master drives read and write transactions and checks **protocol co
 
 # What is AXI4-Lite
 
-AXI4-Lite is a simplified version of the AXI bus protocol used for **low-bandwidth memory-mapped communication** between processors and peripherals.  
+AXI4-Lite is a simplified version of the AXI bus protocol used for **low-bandwidth memory-mapped communication** between processors and peripherals.
 
 It supports **single read and write transactions** using a **VALID–READY handshake mechanism** across five independent channels.
 
@@ -71,3 +71,59 @@ https://www.edaplayground.com/x/H8Yf
 ---
 
 # Project Architecture
+
+```
+axi_verification
+│
+├── axi_if.sv
+├── axi_transaction.sv
+├── axi_sequencer.sv
+├── axi_driver.sv
+├── axi_monitor.sv
+├── axi_scoreboard.sv
+├── axi_env.sv
+├── axi_test.sv
+├── axi_assertions.sv
+├── axi_slave.sv
+└── tb_top.sv
+```
+
+
+---
+
+# File Descriptions
+
+**axi_if.sv**  
+Defines the AXI4-Lite interface and modports connecting the testbench and DUT.
+
+**axi_transaction.sv**  
+Defines the transaction object containing address, data, and operation type.
+
+**axi_sequencer.sv**  
+Generates AXI read/write transactions and sends them to the driver.
+
+**axi_driver.sv**  
+Drives AXI interface signals based on transactions from the sequencer.
+
+**axi_monitor.sv**  
+Observes AXI bus activity and captures DUT responses.
+
+**axi_scoreboard.sv**  
+Compares expected and actual data to verify correctness.
+
+**axi_env.sv**  
+Connects and manages all verification components in the environment.
+
+**axi_test.sv**  
+Defines the test scenario and starts the verification process.
+
+**axi_assertions.sv**  
+Contains SystemVerilog assertions to check AXI protocol rules.
+
+**axi_slave.sv**  
+Implements the AXI4-Lite slave design under test (DUT).
+
+**tb_top.sv**  
+Top-level testbench that instantiates the DUT, interface, and verification environment.
+
+---
