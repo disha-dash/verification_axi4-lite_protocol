@@ -78,6 +78,9 @@ https://www.edaplayground.com/x/H8Yf
 ```
 axi_verification
 │
+├── testbench.sv
+├── tb_axi_slave.sv
+│
 ├── tb_top.sv
 │ ├── axi_if.sv
 │ ├── axi_slave.sv
@@ -130,7 +133,13 @@ Contains SystemVerilog assertions to check AXI protocol rules.
 **axi_slave.sv**  
 Implements the AXI4-Lite slave design under test (DUT).
 
+**tb_axi_slave.sv**  
+A basic standalone testbench that verifies the AXI4-Lite slave by manually driving read and write signals on the AXI interface.
+
 **tb_top.sv**  
 Top-level testbench that instantiates the DUT, interface, and verification environment.
+
+**testbench.sv**  
+Initial testbench structure with includes.
 
 ---
