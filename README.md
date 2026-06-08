@@ -69,7 +69,7 @@ A transaction occurs when **both VALID and READY signals are high (1).**
 - **EDA Playground** – used to run the verification environment with the Questa simulator
 
 Playground link:  
-https://www.edaplayground.com/x/H8Yf
+https://www.edaplayground.com/x/WBmi
 
 ---
 
@@ -78,14 +78,13 @@ https://www.edaplayground.com/x/H8Yf
 ```
 axi_verification
 │
+├── design.sv
 ├── testbench.sv
-├── tb_axi_slave.sv
 │
 ├── tb_top.sv
-│ ├── axi_if.sv
-│ ├── axi_slave.sv
-│ ├── axi_assertions.sv
-│ └── axi_test.sv
+├── axi_if.sv
+├── axi_slave.sv
+├── axi_assertions.sv
 │
 ├── axi_test.sv
 │ ├── axi_env.sv
@@ -95,8 +94,11 @@ axi_verification
 │ │ ├── axi_scoreboard.sv
 │ │ └── mailbox (monitor → scoreboard communication)
 │ │
-│ └── axi_sequencer.sv
+│ ├── axi_sequencer.sv
 │ └── axi_transaction.sv
+│
+└── tb_axi_slave.sv
+
 ```
 
 
@@ -107,12 +109,27 @@ axi_verification
 The verification environment is implemented using a layered SystemVerilog architecture and includes:
 
 * Transaction-based stimulus generation
-* Driver, Monitor and Scoreboard components
-* Mailbox-based communication
+* Driver, Monitor and Scoreboard architecture
+* Mailbox-based component communication
 * SystemVerilog Assertions (SVA)
 * Functional Coverage collection
+* Cross Coverage analysis
 * Directed testing
 * Read-after-write data integrity verification
+* Byte-enable (WSTRB) verification
+* Reset scenario verification
+---
+
+# Key Achievements
+
+* Developed a layered SystemVerilog verification environment from scratch
+* Implemented Driver, Monitor, Scoreboard, Assertions, and Functional Coverage components
+* Verified AXI4-Lite read and write transactions across multiple address regions
+* Achieved 94.6% functional coverage with 100% coverage across all AXI4-Lite transaction channels
+  and cross-coverage goals
+* Implemented protocol checking using SystemVerilog Assertions (SVA)
+* Verified byte-enable (WSTRB) functionality and partial-write behavior
+* Automated data integrity checking using a scoreboard-based architecture
 
 ---
 
@@ -154,15 +171,17 @@ Coverage points include:
 | Coverage Item                 | Coverage  |
 | ----------------------------- | --------- |
 | AW Channel                    | 100.0%    |
-| W Channel                     | 81.0%     |
-| B Channel                     | 62.5%     |
+| W Channel                     | 100.0%    |
+| B Channel                     | 100.0%    |
 | AR Channel                    | 100.0%    |
-| R Channel                     | 75.0%     |
-| AW × W Cross Coverage         | 66.7%     |
-| Reset Coverage                | 25.0%     |
-| **Total Functional Coverage** | **72.9%** |
+| R Channel                     | 100.0%    |
+| AW × W Cross Coverage         | 100.0%    |
+| Reset Coverage                | 62.5%     |
+| **Total Functional Coverage** | **94.6%** |
 
-The achieved coverage demonstrates successful verification of AXI4-Lite read/write transactions, protocol handshakes, address decoding, byte-strobe operations and data integrity checks.
+The verification environment achieved complete coverage of all AXI4-Lite protocol channels and cross-coverage goals. The generated stimulus exercised full-word writes, partial-byte writes, address alignment scenarios, multiple address regions, protocol handshakes, read-after-write operations, response handling, and reset behavior.
+
+The achieved 94.6% functional coverage demonstrates thorough verification of the AXI4-Lite slave interface and confirms that all planned protocol scenarios were successfully exercised during simulation.
 
 ---
 
@@ -193,8 +212,6 @@ Coverage Collection
 
 The monitor captures DUT activity and forwards transactions to the scoreboard for checking. Assertions continuously verify protocol correctness, while functional coverage measures verification completeness.
 
-```
-```
 
 
 # File Descriptions
