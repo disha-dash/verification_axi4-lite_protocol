@@ -91,6 +91,7 @@ axi_verification
 │ ├── axi_env.sv
 │ │ ├── axi_driver.sv
 │ │ ├── axi_monitor.sv
+│ │ ├── axi_coverage.sv
 │ │ ├── axi_scoreboard.sv
 │ │ └── mailbox (monitor → scoreboard communication)
 │ │
@@ -100,6 +101,101 @@ axi_verification
 
 
 ---
+
+# Verification Features
+
+The verification environment is implemented using a layered SystemVerilog architecture and includes:
+
+* Transaction-based stimulus generation
+* Driver, Monitor and Scoreboard components
+* Mailbox-based communication
+* SystemVerilog Assertions (SVA)
+* Functional Coverage collection
+* Directed testing
+* Read-after-write data integrity verification
+
+---
+
+# SystemVerilog Assertions (SVA)
+
+SystemVerilog Assertions were implemented to automatically detect AXI4-Lite protocol violations during simulation.
+
+The assertions verify:
+
+* VALID signal stability until handshake completion
+* AW channel handshake correctness
+* W channel handshake correctness
+* AR channel handshake correctness
+* Read response validity
+* Write response validity
+* Protocol sequencing requirements
+* Reset behaviour and signal consistency
+
+Assertions provide immediate detection of protocol violations and improve verification quality beyond traditional scoreboard-based checking.
+
+---
+
+# Functional Coverage
+
+Functional coverage was implemented to measure verification completeness across AXI4-Lite transactions and protocol handshakes.
+
+Coverage points include:
+
+* Write Address Channel (AW)
+* Write Data Channel (W)
+* Write Response Channel (B)
+* Read Address Channel (AR)
+* Read Data Channel (R)
+* Cross coverage between address and data channels
+* Reset behaviour
+
+## Coverage Results
+
+| Coverage Item                 | Coverage  |
+| ----------------------------- | --------- |
+| AW Channel                    | 100.0%    |
+| W Channel                     | 81.0%     |
+| B Channel                     | 62.5%     |
+| AR Channel                    | 100.0%    |
+| R Channel                     | 75.0%     |
+| AW × W Cross Coverage         | 66.7%     |
+| Reset Coverage                | 25.0%     |
+| **Total Functional Coverage** | **72.9%** |
+
+The achieved coverage demonstrates successful verification of AXI4-Lite read/write transactions, protocol handshakes, address decoding, byte-strobe operations and data integrity checks.
+
+---
+
+# Verification Flow
+
+```text
+Transaction
+     │
+     ▼
+ Sequencer
+     │
+     ▼
+  Driver
+     │
+     ▼
+ AXI DUT
+     │
+ ┌───┴──────────────┐
+ ▼                  ▼
+Monitor        Assertions
+ │
+ ▼
+Scoreboard
+ │
+ ▼
+Coverage Collection
+```
+
+The monitor captures DUT activity and forwards transactions to the scoreboard for checking. Assertions continuously verify protocol correctness, while functional coverage measures verification completeness.
+
+```
+```
+
 
 # File Descriptions
 
@@ -114,6 +210,9 @@ Generates AXI read/write transactions and sends them to the driver.
 
 **axi_driver.sv**  
 Drives AXI interface signals based on transactions from the sequencer.
+
+**axi_coverage.sv** 
+Contains SystemVerilog functional coverage models that track AXI4-Lite channel activity, protocol handshakes, cross coverage, and reset scenarios.
 
 **axi_monitor.sv**  
 Observes AXI bus activity and captures DUT responses.
