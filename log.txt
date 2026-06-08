@@ -1,0 +1,272 @@
+# Loading sv_std.std
+# Loading work.design_sv_unit(fast)
+# Loading work.tb_top(fast)
+# Loading work.axi_if(fast__2)
+# Loading work.axi_slave(fast)
+# Loading work.axi_assertions(fast)
+# Loading work.axi_if(fast)
+# 
+# run -all
+# [25000] Reset deasserted
+# [25000] Creating AXI test environment
+# [25000] ENV: Build phase complete
+# [25000] Starting AXI layered test
+# [25000] ENV: Starting all components
+# [25000] SEQ: Starting to generate transactions
+# [25000] SEQ: Tx 0 addr=0x00000010 data=0x12345678 strb=0xf
+# [25000] SEQ: Tx 1 addr=0x00000014 data=0x12345679 strb=0xf
+# [25000] SEQ: Tx 2 addr=0x00000018 data=0x1234567a strb=0xf
+# [25000] SEQ: Tx 3 addr=0x0000001c data=0x1234567b strb=0xf
+# [25000] SEQ: Tx 4 addr=0x00000000 data=0xdead0000 strb=0xf
+# [25000] SEQ: Tx 5 addr=0x00000004 data=0xdead0001 strb=0xf
+# [25000] SEQ: Tx 6 addr=0x00000008 data=0xdead0002 strb=0xf
+# [25000] SEQ: Tx 7 addr=0x0000000c data=0xdead0003 strb=0xf
+# [25000] SEQ: Tx 8 addr=0x00000020 data=0xcafef00d strb=0xf
+# [25000] SEQ: Tx 9 addr=0x00000008 data=0x00000000 strb=0xf (all-zeros)
+# [25000] SEQ: Tx 10 addr=0x0000000c data=0xffffffff strb=0xf (all-ones)
+# [25000] SEQ: Tx 11 addr=0x00000024 data=0xaabbccdd strb=0xc (upper-half strobe)
+# [25000] SEQ: Tx 12 addr=0x00000028 data=0x11223344 strb=0x3 (lower-half strobe)
+# [25000] SEQ: All 13 transactions generated
+# [25000] DRV: Initializing signals
+# [45000] DRV: Starting transaction loop
+# [45000] SEQ: Delivered transaction addr=0x00000010
+# [45000] DRV: ========================================
+# [45000] DRV: Transaction #1
+# [45000] DRV: addr=0x00000010 data=0x12345678 strb=0xf
+# [45000] DRV: ========================================
+# [55000] DRV: WRITE - Asserted AWVALID and WVALID
+# [65000] DRV: WRITE - AWREADY received
+# [75000] DRV: WRITE - WREADY received
+# [85000] DRV: WRITE - Response received (bresp=0x0)
+# [115000] DRV: READ - Asserted ARVALID
+# [135000] MON: addr=0x00000010 data=0x12345678
+# [135000] DRV: READ - ARREADY received
+# [135000] DRV: READ - Data: 0x12345678 (rresp=0x0)
+# SB OK idx=4 val=0x12345678
+# [145000] SEQ: Transaction done addr=0x00000010 data=0x12345678
+# [145000] DRV: Transaction #1 COMPLETE
+# 
+# [165000] SEQ: Delivered transaction addr=0x00000014
+# [165000] DRV: ========================================
+# [165000] DRV: Transaction #2
+# [165000] DRV: addr=0x00000014 data=0x12345679 strb=0xf
+# [165000] DRV: ========================================
+# [175000] DRV: WRITE - Asserted AWVALID and WVALID
+# [185000] DRV: WRITE - AWREADY received
+# [195000] DRV: WRITE - WREADY received
+# [205000] DRV: WRITE - Response received (bresp=0x0)
+# [235000] DRV: READ - Asserted ARVALID
+# [255000] MON: addr=0x00000014 data=0x12345679
+# [255000] DRV: READ - ARREADY received
+# [255000] DRV: READ - Data: 0x12345679 (rresp=0x0)
+# SB OK idx=5 val=0x12345679
+# [265000] SEQ: Transaction done addr=0x00000014 data=0x12345679
+# [265000] DRV: Transaction #2 COMPLETE
+# 
+# [285000] SEQ: Delivered transaction addr=0x00000018
+# [285000] DRV: ========================================
+# [285000] DRV: Transaction #3
+# [285000] DRV: addr=0x00000018 data=0x1234567a strb=0xf
+# [285000] DRV: ========================================
+# [295000] DRV: WRITE - Asserted AWVALID and WVALID
+# [305000] DRV: WRITE - AWREADY received
+# [315000] DRV: WRITE - WREADY received
+# [325000] DRV: WRITE - Response received (bresp=0x0)
+# [355000] DRV: READ - Asserted ARVALID
+# [375000] MON: addr=0x00000018 data=0x1234567a
+# [375000] DRV: READ - ARREADY received
+# [375000] DRV: READ - Data: 0x1234567a (rresp=0x0)
+# SB OK idx=6 val=0x1234567a
+# [385000] SEQ: Transaction done addr=0x00000018 data=0x1234567a
+# [385000] DRV: Transaction #3 COMPLETE
+# 
+# [405000] SEQ: Delivered transaction addr=0x0000001c
+# [405000] DRV: ========================================
+# [405000] DRV: Transaction #4
+# [405000] DRV: addr=0x0000001c data=0x1234567b strb=0xf
+# [405000] DRV: ========================================
+# [415000] DRV: WRITE - Asserted AWVALID and WVALID
+# [425000] DRV: WRITE - AWREADY received
+# [435000] DRV: WRITE - WREADY received
+# [445000] DRV: WRITE - Response received (bresp=0x0)
+# [475000] DRV: READ - Asserted ARVALID
+# [495000] MON: addr=0x0000001c data=0x1234567b
+# [495000] DRV: READ - ARREADY received
+# [495000] DRV: READ - Data: 0x1234567b (rresp=0x0)
+# SB OK idx=7 val=0x1234567b
+# [505000] SEQ: Transaction done addr=0x0000001c data=0x1234567b
+# [505000] DRV: Transaction #4 COMPLETE
+# 
+# [525000] SEQ: Delivered transaction addr=0x00000000
+# [525000] DRV: ========================================
+# [525000] DRV: Transaction #5
+# [525000] DRV: addr=0x00000000 data=0xdead0000 strb=0xf
+# [525000] DRV: ========================================
+# [535000] DRV: WRITE - Asserted AWVALID and WVALID
+# [545000] DRV: WRITE - AWREADY received
+# [555000] DRV: WRITE - WREADY received
+# [565000] DRV: WRITE - Response received (bresp=0x0)
+# [595000] DRV: READ - Asserted ARVALID
+# [615000] MON: addr=0x00000000 data=0xdead0000
+# [615000] DRV: READ - ARREADY received
+# [615000] DRV: READ - Data: 0xdead0000 (rresp=0x0)
+# SB OK idx=0 val=0xdead0000
+# [625000] SEQ: Transaction done addr=0x00000000 data=0xdead0000
+# [625000] DRV: Transaction #5 COMPLETE
+# 
+# [645000] SEQ: Delivered transaction addr=0x00000004
+# [645000] DRV: ========================================
+# [645000] DRV: Transaction #6
+# [645000] DRV: addr=0x00000004 data=0xdead0001 strb=0xf
+# [645000] DRV: ========================================
+# [655000] DRV: WRITE - Asserted AWVALID and WVALID
+# [665000] DRV: WRITE - AWREADY received
+# [675000] DRV: WRITE - WREADY received
+# [685000] DRV: WRITE - Response received (bresp=0x0)
+# [715000] DRV: READ - Asserted ARVALID
+# [735000] MON: addr=0x00000004 data=0xdead0001
+# [735000] DRV: READ - ARREADY received
+# [735000] DRV: READ - Data: 0xdead0001 (rresp=0x0)
+# SB OK idx=1 val=0xdead0001
+# [745000] SEQ: Transaction done addr=0x00000004 data=0xdead0001
+# [745000] DRV: Transaction #6 COMPLETE
+# 
+# [765000] SEQ: Delivered transaction addr=0x00000008
+# [765000] DRV: ========================================
+# [765000] DRV: Transaction #7
+# [765000] DRV: addr=0x00000008 data=0xdead0002 strb=0xf
+# [765000] DRV: ========================================
+# [775000] DRV: WRITE - Asserted AWVALID and WVALID
+# [785000] DRV: WRITE - AWREADY received
+# [795000] DRV: WRITE - WREADY received
+# [805000] DRV: WRITE - Response received (bresp=0x0)
+# [835000] DRV: READ - Asserted ARVALID
+# [855000] MON: addr=0x00000008 data=0xdead0002
+# [855000] DRV: READ - ARREADY received
+# [855000] DRV: READ - Data: 0xdead0002 (rresp=0x0)
+# ** SB ERROR ** idx=2 exp=0x00000000 got=0xdead0002
+# [865000] SEQ: Transaction done addr=0x00000008 data=0xdead0002
+# [865000] DRV: Transaction #7 COMPLETE
+# 
+# [885000] SEQ: Delivered transaction addr=0x0000000c
+# [885000] DRV: ========================================
+# [885000] DRV: Transaction #8
+# [885000] DRV: addr=0x0000000c data=0xdead0003 strb=0xf
+# [885000] DRV: ========================================
+# [895000] DRV: WRITE - Asserted AWVALID and WVALID
+# [905000] DRV: WRITE - AWREADY received
+# [915000] DRV: WRITE - WREADY received
+# [925000] DRV: WRITE - Response received (bresp=0x0)
+# [955000] DRV: READ - Asserted ARVALID
+# [975000] MON: addr=0x0000000c data=0xdead0003
+# [975000] DRV: READ - ARREADY received
+# [975000] DRV: READ - Data: 0xdead0003 (rresp=0x0)
+# ** SB ERROR ** idx=3 exp=0xffffffff got=0xdead0003
+# [985000] SEQ: Transaction done addr=0x0000000c data=0xdead0003
+# [985000] DRV: Transaction #8 COMPLETE
+# 
+# [1005000] SEQ: Delivered transaction addr=0x00000020
+# [1005000] DRV: ========================================
+# [1005000] DRV: Transaction #9
+# [1005000] DRV: addr=0x00000020 data=0xcafef00d strb=0xf
+# [1005000] DRV: ========================================
+# [1015000] DRV: WRITE - Asserted AWVALID and WVALID
+# [1025000] DRV: WRITE - AWREADY received
+# [1035000] DRV: WRITE - WREADY received
+# [1045000] DRV: WRITE - Response received (bresp=0x0)
+# [1075000] DRV: READ - Asserted ARVALID
+# [1095000] MON: addr=0x00000020 data=0xcafef00d
+# [1095000] DRV: READ - ARREADY received
+# [1095000] DRV: READ - Data: 0xcafef00d (rresp=0x0)
+# SB OK idx=8 val=0xcafef00d
+# [1105000] SEQ: Transaction done addr=0x00000020 data=0xcafef00d
+# [1105000] DRV: Transaction #9 COMPLETE
+# 
+# [1125000] SEQ: Delivered transaction addr=0x00000008
+# [1125000] DRV: ========================================
+# [1125000] DRV: Transaction #10
+# [1125000] DRV: addr=0x00000008 data=0x00000000 strb=0xf
+# [1125000] DRV: ========================================
+# [1135000] DRV: WRITE - Asserted AWVALID and WVALID
+# [1145000] DRV: WRITE - AWREADY received
+# [1155000] DRV: WRITE - WREADY received
+# [1165000] DRV: WRITE - Response received (bresp=0x0)
+# [1195000] DRV: READ - Asserted ARVALID
+# [1215000] MON: addr=0x00000008 data=0x00000000
+# [1215000] DRV: READ - ARREADY received
+# [1215000] DRV: READ - Data: 0x00000000 (rresp=0x0)
+# SB OK idx=2 val=0x00000000
+# [1225000] SEQ: Transaction done addr=0x00000008 data=0x00000000
+# [1225000] DRV: Transaction #10 COMPLETE
+# 
+# [1245000] SEQ: Delivered transaction addr=0x0000000c
+# [1245000] DRV: ========================================
+# [1245000] DRV: Transaction #11
+# [1245000] DRV: addr=0x0000000c data=0xffffffff strb=0xf
+# [1245000] DRV: ========================================
+# [1255000] DRV: WRITE - Asserted AWVALID and WVALID
+# [1265000] DRV: WRITE - AWREADY received
+# [1275000] DRV: WRITE - WREADY received
+# [1285000] DRV: WRITE - Response received (bresp=0x0)
+# [1315000] DRV: READ - Asserted ARVALID
+# [1335000] MON: addr=0x0000000c data=0xffffffff
+# [1335000] DRV: READ - ARREADY received
+# [1335000] DRV: READ - Data: 0xffffffff (rresp=0x0)
+# SB OK idx=3 val=0xffffffff
+# [1345000] SEQ: Transaction done addr=0x0000000c data=0xffffffff
+# [1345000] DRV: Transaction #11 COMPLETE
+# 
+# [1365000] SEQ: Delivered transaction addr=0x00000024
+# [1365000] DRV: ========================================
+# [1365000] DRV: Transaction #12
+# [1365000] DRV: addr=0x00000024 data=0xaabbccdd strb=0xc
+# [1365000] DRV: ========================================
+# [1375000] DRV: WRITE - Asserted AWVALID and WVALID
+# [1385000] DRV: WRITE - AWREADY received
+# [1395000] DRV: WRITE - WREADY received
+# [1405000] DRV: WRITE - Response received (bresp=0x0)
+# [1435000] DRV: READ - Asserted ARVALID
+# [1455000] MON: addr=0x00000024 data=0xaabb0000
+# [1455000] DRV: READ - ARREADY received
+# [1455000] DRV: READ - Data: 0xaabb0000 (rresp=0x0)
+# SB OK idx=9 val=0xaabb0000
+# [1465000] SEQ: Transaction done addr=0x00000024 data=0xaabbccdd
+# [1465000] DRV: Transaction #12 COMPLETE
+# 
+# [1485000] SEQ: Delivered transaction addr=0x00000028
+# [1485000] DRV: ========================================
+# [1485000] DRV: Transaction #13
+# [1485000] DRV: addr=0x00000028 data=0x11223344 strb=0x3
+# [1485000] DRV: ========================================
+# [1495000] DRV: WRITE - Asserted AWVALID and WVALID
+# [1505000] DRV: WRITE - AWREADY received
+# [1515000] DRV: WRITE - WREADY received
+# [1525000] DRV: WRITE - Response received (bresp=0x0)
+# [1555000] DRV: READ - Asserted ARVALID
+# [1575000] MON: addr=0x00000028 data=0x00003344
+# [1575000] DRV: READ - ARREADY received
+# [1575000] DRV: READ - Data: 0x00003344 (rresp=0x0)
+# SB OK idx=10 val=0x00003344
+# [1585000] SEQ: Transaction done addr=0x00000028 data=0x11223344
+# [1585000] DRV: Transaction #13 COMPLETE
+# 
+# [1605000] DRV: All 13 transactions completed!
+# [4025000] ENV: Test time expired
+# ----------------------------------------------------
+#  AXI4-Lite Functional Coverage Report
+# ----------------------------------------------------
+#   AW Channel  : 100.0%
+#   W  Channel  : 81.0%
+#   B  Channel  : 62.5%
+#   AR Channel  : 100.0%
+#   R  Channel  : 75.0%
+#   AW x W Cross: 66.7%
+#   Reset       : 25.0%
+#   TOTAL       : 72.9%
+# ----------------------------------------------------
+# [4025000] Test completed
+# [6025000] Simulation completed
+# ** Note: $finish    : tb_top.sv(51)
+#    Time: 6025 ns  Iteration: 0  Instance: /tb_top
+# End time: 07:51:43 on Jun 08,2026, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
