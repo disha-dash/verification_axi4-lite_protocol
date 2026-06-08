@@ -6,10 +6,10 @@ class axi_test;
     this.axi_vif = axi_vif;
   endfunction
 
-  function void build();
+  task build();
     env = new(axi_vif);
     env.build();
-  endfunction
+  endtask
 
   task run();
     $display("[%0t] Starting AXI layered test", $time);
