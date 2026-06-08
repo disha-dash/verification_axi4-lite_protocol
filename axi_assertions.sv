@@ -1,5 +1,5 @@
 //==============================================================
-// AXI4-Lite SVA Assertions  
+// AXI4-Lite SVA Assertions
 //==============================================================
 module axi_assertions (axi_if axi);
 
